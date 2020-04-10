@@ -72,15 +72,15 @@ def solve(board, steps):
                 new_board[i+2][j] = 1
                 solve(new_board, new_steps)
                 path_already_taken[str(board)+str(((i,j),(i+2,j)))] = True
-            if isValid(i,j-1) and board[i][j-1] == 1 and isValid(i,j-2) and board[i][j-2] == 0 and (str(board)+str(((i,j),(i-2,j))) not in path_already_taken):
+            if isValid(i,j-1) and board[i][j-1] == 1 and isValid(i,j-2) and board[i][j-2] == 0 and (str(board)+str(((i,j),(i,j-2))) not in path_already_taken):
                 new_steps = steps[:]
-                new_steps.append(((i,j),(i-2,j)))
+                new_steps.append(((i,j),(i,j-2)))
                 new_board = [row[:] for row in board]
                 new_board[i][j] = 0
                 new_board[i][j-1] = 0
                 new_board[i][j-2] = 1
                 solve(new_board, new_steps)
-                path_already_taken[str(board)+str(((i,j),(i-2,j)))] = True
+                path_already_taken[str(board)+str(((i,j),(i,j-2)))] = True
             if isValid(i,j+1) and board[i][j+1] == 1 and isValid(i,j+2) and board[i][j+2] == 0 and (str(board)+str(((i,j),(i,j+2))) not in path_already_taken):
                 new_steps = steps[:]
                 new_steps.append(((i,j),(i,j+2)))

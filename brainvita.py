@@ -1,6 +1,4 @@
 import matplotlib.pyplot as plt
-import time
-import copy
 import sys
 
 invalid_options = [(0,0), (0,1), (0,5), (0,6), (1,0), (1,1), (1,5), (1,6), (5,0), (5,1), (5,5), (5,6), (6,0), (6,1), (6,5), (6,6)]
@@ -42,7 +40,6 @@ def board_solved(board):
 
 def solve(board, steps):
     if board_solved(board):
-        print(time.time())
         print("steps are : " + str(steps))
         print_board(board)
         sys.exit()
@@ -99,7 +96,6 @@ def main():
     board = init_board()
     print_board(board)
     steps = []
-    print(time.time())
     solve(board, steps)
     print("No solution !!!")
 
